@@ -115,11 +115,11 @@ function normalizarGrupo(grupo) {
   return s.slice(0, 10);
 }
 
-/** Valida que sea un CCT real (ej. 26DST0001P, 26DST00731), no header */
+/** Valida CCT SEP (ej. 26EES0001W, 26DES0036S, 26ETV0001B) */
 function esCctValido(val) {
   if (!val || typeof val !== "string") return false;
-  const s = String(val).trim();
-  return /^\d{2}DST[\dA-Z]+$/i.test(s) && s.length >= 10;
+  const s = String(val).trim().toUpperCase();
+  return /^\d{2}[A-Z]{3}\d{4}[A-Z0-9]$/.test(s);
 }
 
 /** Parsea fila en formato Datos_transformados (array, Col_0 = index 0) */

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:data && next build",
+    "build": "next build",
     "build:data": "node scripts/parse-excel-to-json.mjs",
     "merge-buscador": "node scripts/merge-buscador-escuelas.mjs",
     "generate-auth": "node scripts/generate-auth.mjs",
