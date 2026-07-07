@@ -1,0 +1,44 @@
+{
+  "name": "raf-leng-estatales",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run build:data && next build",
+    "build:data": "node scripts/parse-excel-to-json.mjs",
+    "merge-buscador": "node scripts/merge-buscador-escuelas.mjs",
+    "generate-auth": "node scripts/generate-auth.mjs",
+    "generate-auth-simple": "node scripts/generate-auth-simple.mjs",
+    "generate-auth-zonas": "node scripts/generate-auth-zonas.mjs",
+    "sync-auth-escuelas": "node scripts/sync-auth-escuelas.mjs",
+    "start": "next start",
+    "regenerate-super": "node scripts/regenerate-super-only.mjs",
+    "ver-hash-super": "node scripts/ver-hash-super.mjs",
+    "verificar-resultados": "node scripts/verificar-resultados-vs-excel.mjs",
+    "procesar-examen": "node scripts/procesar-examen-lenguaje.mjs",
+    "generate-pdf-comparativa": "node scripts/generar-pdf-comparativa.mjs",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^8.21.3",
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "recharts": "^3.7.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "pdfkit": "^0.19.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
