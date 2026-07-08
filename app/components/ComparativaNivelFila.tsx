@@ -10,10 +10,9 @@ interface Props {
   href: string;
 }
 
-function deltaClassPct(delta: number, invert: boolean): string {
+function deltaClassPct(delta: number): string {
   if (delta === 0) return "delta-neutral";
-  const positive = invert ? delta < 0 : delta > 0;
-  return positive ? "delta-up" : "delta-down";
+  return delta > 0 ? "delta-up" : "delta-down";
 }
 
 function formatDeltaPct(delta: number): string {
@@ -29,8 +28,7 @@ function formatPct(n: number): string {
 
 function deltaHint(nivel: NivelLenguaje, delta: number): string {
   if (delta === 0) return "Sin cambio";
-  if (nivel >= 3) return delta > 0 ? "Aumentó el porcentaje" : "Disminuyó el porcentaje";
-  return delta < 0 ? "Disminuyó el porcentaje" : "Aumentó el porcentaje";
+  return delta > 0 ? "Aumentó el porcentaje" : "Disminuyó el porcentaje";
 }
 
 export default function ComparativaNivelFila({
@@ -41,8 +39,7 @@ export default function ComparativaNivelFila({
   deltaPct,
   href,
 }: Props) {
-  const invert = nivel <= 2;
-  const deltaCls = deltaClassPct(deltaPct, invert);
+  const deltaCls = deltaClassPct(deltaPct);
 
   return (
     <Link
