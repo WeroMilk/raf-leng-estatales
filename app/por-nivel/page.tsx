@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+﻿import { cookies } from "next/headers";
 import { Suspense } from "react";
 import BackButton from "@/app/components/BackButton";
 import PageHeader from "@/app/components/PageHeader";
@@ -80,7 +80,6 @@ export default async function PorNivelPage({
   const evalModo = parseEvalParam(params.eval);
   const comparar = isComparativa(evalModo);
   const evalId = resolveEvalId(evalModo);
-  const parcial2026 = getEvaluacionSync("aterrizaje2026")?.parcial ?? false;
 
   const nivelParam = params.nivel ?? "";
   const nivelFiltro: NivelLenguaje | null =
@@ -216,7 +215,7 @@ export default async function PorNivelPage({
         <div className="page-header__toolbar">
           <BackButton href={backHref} label={nivelFiltro ? (cctParam ? "Escuela" : "Por nivel") : "Inicio"} />
           <Suspense fallback={null}>
-            <SelectorEvaluacion parcial2026={parcial2026} />
+            <SelectorEvaluacion />
           </Suspense>
         </div>
       </PageHeader>

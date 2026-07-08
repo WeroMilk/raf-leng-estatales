@@ -8,11 +8,10 @@ const OPCIONES: { id: EvalModo; label: string; short: string }[] = [
 
 interface Props {
   evalModo: EvalModo;
-  parcial2026?: boolean;
 }
 
 /** Placeholder estático mientras carga SelectorEvaluacion (Suspense). */
-export default function EvalSelectorShell({ evalModo, parcial2026 }: Props) {
+export default function EvalSelectorShell({ evalModo }: Props) {
   const currentOption = OPCIONES.find((o) => o.id === evalModo) ?? OPCIONES[0];
 
   return (
@@ -34,10 +33,6 @@ export default function EvalSelectorShell({ evalModo, parcial2026 }: Props) {
           </span>
         ))}
       </div>
-
-      {parcial2026 && evalModo !== "despegue2025" && (
-        <span className="eval-badge--parcial eval-badge--parcial-desktop">Datos parciales 2026</span>
-      )}
     </div>
   );
 }

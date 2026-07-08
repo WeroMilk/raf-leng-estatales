@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BackButton from "@/app/components/BackButton";
 import PageHeader from "@/app/components/PageHeader";
@@ -20,7 +20,6 @@ export default async function AlumnoPage({
   const evalModo = parseEvalParam(sp.eval);
   const comparar = isComparativa(evalModo);
   const evalId = resolveEvalId(evalModo);
-  const parcial2026 = getEvaluacionSync("aterrizaje2026")?.parcial ?? false;
   const grupoDecoded = decodeURIComponent(grupo);
 
   const alumno = getAlumnoSync(cct, grupoDecoded, slug, evalId);
@@ -41,7 +40,7 @@ export default async function AlumnoPage({
       <PageHeader
         centerContent={
           <Suspense fallback={null}>
-            <SelectorEvaluacion parcial2026={parcial2026} />
+            <SelectorEvaluacion />
           </Suspense>
         }
       >

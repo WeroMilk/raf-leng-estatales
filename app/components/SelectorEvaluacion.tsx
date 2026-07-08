@@ -11,11 +11,7 @@ const OPCIONES: { id: EvalModo; label: string; short: string }[] = [
   { id: "comparar", label: "Comparativa", short: "Comp." },
 ];
 
-interface Props {
-  parcial2026?: boolean;
-}
-
-export default function SelectorEvaluacion({ parcial2026 }: Props) {
+export default function SelectorEvaluacion() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -120,11 +116,6 @@ export default function SelectorEvaluacion({ parcial2026 }: Props) {
               );
             })}
           </ul>
-          {parcial2026 && current !== "despegue2025" && (
-            <p className="border-t border-border px-4 py-2 text-center text-[10px] text-foreground/60">
-              Aterrizaje 2026: datos parciales
-            </p>
-          )}
         </div>
       </div>,
       document.body
@@ -132,7 +123,6 @@ export default function SelectorEvaluacion({ parcial2026 }: Props) {
 
   return (
     <div className="eval-selector-wrap">
-      {/* Móvil: botón compacto en el header */}
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -147,7 +137,6 @@ export default function SelectorEvaluacion({ parcial2026 }: Props) {
         </svg>
       </button>
 
-      {/* Escritorio: pills segmentados */}
       <div className="eval-selector" role="tablist" aria-label="Evaluación RAF">
         {OPCIONES.map(({ id, label }) => (
           <button
@@ -162,10 +151,6 @@ export default function SelectorEvaluacion({ parcial2026 }: Props) {
           </button>
         ))}
       </div>
-
-      {parcial2026 && current !== "despegue2025" && (
-        <span className="eval-badge--parcial eval-badge--parcial-desktop">Datos parciales 2026</span>
-      )}
 
       {modal}
     </div>

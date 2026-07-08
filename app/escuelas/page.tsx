@@ -1,4 +1,4 @@
-import BackButton from "@/app/components/BackButton";
+﻿import BackButton from "@/app/components/BackButton";
 import PageHeader from "@/app/components/PageHeader";
 import ScrollOnlyWhenNeeded from "@/app/components/ScrollOnlyWhenNeeded";
 import EscuelasContent from "./EscuelasContent";
@@ -42,7 +42,6 @@ export default async function EscuelasPage({
   }
 
   const ev2026 = getEvaluacionSync("aterrizaje2026");
-  const parcial2026 = ev2026?.parcial ?? false;
 
   let escuelas = comparar ? [] : getEscuelasSync(evalId);
   let escuelasUnion = comparar ? getEscuelasUnionSync() : [];
@@ -84,9 +83,7 @@ export default async function EscuelasPage({
       <PageHeader
         centerContent={
           <Suspense fallback={null}>
-            <HeaderEvaluacionControles
-              parcial2026={parcial2026}
-              showFiltroZona={session?.tipo === "super"}
+            <HeaderEvaluacionControles showFiltroZona={session?.tipo === "super"}
             />
           </Suspense>
         }

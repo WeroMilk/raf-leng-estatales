@@ -17,7 +17,6 @@ import { filtrarEscuelasPorZona, parseZonasParam } from "@/lib/zonas";
 import { parseEvalParam, buildQueryString, isComparativa } from "@/lib/eval-query";
 import { resumenDesdeEscuelas } from "@/lib/comparativa";
 import { formatUltimaActualizacion } from "@/lib/format-fecha";
-import { RAF_CONFIG } from "@/lib/raf-config";
 
 function parseZonasFromParams(params: { zona?: string | string[] }) {
   return parseZonasParam(params.zona);
@@ -43,7 +42,6 @@ export default async function HomePage({
 
   const ev2025 = getEvaluacionSync("despegue2025");
   const ev2026 = getEvaluacionSync("aterrizaje2026");
-  const parcial2026 = ev2026?.parcial ?? false;
 
   let escuelas2025 = ev2025?.escuelas ?? [];
   let escuelas2026 = ev2026?.escuelas ?? [];
@@ -107,7 +105,6 @@ export default async function HomePage({
         centerContent={
           <Suspense fallback={null}>
             <HeaderEvaluacionControles
-              parcial2026={parcial2026}
               showFiltroZona={session?.tipo === "super"}
             />
           </Suspense>
@@ -115,7 +112,7 @@ export default async function HomePage({
         meta={
           <>
             <p className="text-xs leading-snug text-foreground/80 lg:text-sm">
-              {RAF_CONFIG.nombrePlural}
+              Secundarias Técnicas
             </p>
             {session?.tipo === "zona" && (
               <span className="text-sm font-medium text-foreground/70">Zona {session.zona}</span>
@@ -139,7 +136,7 @@ export default async function HomePage({
                 resumen2025={resumen2025}
                 resumen2026={resumen2026}
                 basePorNivel={basePorNivel}
-                              />
+              />
               <p className="home-page__updated">
                 Última actualización: {formatUltimaActualizacion(generado)}
               </p>
@@ -154,13 +151,6 @@ export default async function HomePage({
           </div>
         ) : (
           <div className="home-page__main">
-            {parcial2026 && evalId === "aterrizaje2026" && (
-              <p className="text-xs text-foreground/70">
-                <span className="eval-badge--parcial">
-                  <span aria-hidden>⚠</span> Datos parciales — {escuelas2026.length} de {escuelas2025.length} escuelas
-                </span>
-              </p>
-            )}
               <section className="home-page__levels grid min-w-0 grid-cols-4 gap-1.5 lg:gap-3">
               <p className="label-alumnos-por-nivel col-span-full">Alumnos por nivel</p>
               {nivelTotales.map(({ n, total, pct, color }) => (

@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import { cookies } from "next/headers";
 import PageHeader from "@/app/components/PageHeader";
 import EvalSelectorShell from "@/app/components/EvalSelectorShell";
@@ -38,7 +38,6 @@ export default async function ReactivosPage({
   const evalModo = parseEvalParam(sp.eval);
   const comparar = isComparativa(evalModo);
   const evalId = resolveEvalId(evalModo);
-  const parcial2026 = getEvaluacionSync("aterrizaje2026")?.parcial ?? false;
 
   const cookieStore = await cookies();
   const session = await getSession(cookieStore.get("raf_session")?.value ?? null);
@@ -65,8 +64,8 @@ export default async function ReactivosPage({
       <PageHeader>
         <div className="page-header__toolbar">
           <h1 className="min-w-0 flex-1 text-base font-bold leading-tight">Aciertos por reactivo</h1>
-          <Suspense fallback={<EvalSelectorShell evalModo={evalModo} parcial2026={parcial2026} />}>
-            <SelectorEvaluacion parcial2026={parcial2026} />
+          <Suspense fallback={<EvalSelectorShell evalModo={evalModo} />}>
+            <SelectorEvaluacion />
           </Suspense>
         </div>
       </PageHeader>

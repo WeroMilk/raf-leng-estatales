@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import {
   getEscuelaSync,
@@ -31,7 +31,6 @@ export default async function GrupoPage({
   const comparar = isComparativa(evalModo);
   const evalId = resolveEvalId(evalModo);
   const grupoDecoded = decodeURIComponent(grupo);
-  const parcial2026 = getEvaluacionSync("aterrizaje2026")?.parcial ?? false;
 
   if (comparar) {
     const comp = getGrupoComparativoSync(cct, grupoDecoded);
@@ -49,7 +48,7 @@ export default async function GrupoPage({
         <PageHeader
           centerContent={
             <Suspense fallback={null}>
-              <SelectorEvaluacion parcial2026={parcial2026} />
+              <SelectorEvaluacion />
             </Suspense>
           }
         >
@@ -113,7 +112,7 @@ export default async function GrupoPage({
       <PageHeader
         centerContent={
           <Suspense fallback={null}>
-            <SelectorEvaluacion parcial2026={parcial2026} />
+            <SelectorEvaluacion />
           </Suspense>
         }
       >

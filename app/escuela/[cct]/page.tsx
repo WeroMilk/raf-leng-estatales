@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 import { Suspense } from "react";
@@ -35,7 +35,6 @@ export default async function EscuelaPage({
   const cookieStore = await cookies();
   const session = await getSession(cookieStore.get("raf_session")?.value ?? null);
   const isSuper = session?.tipo === "super";
-  const parcial2026 = getEvaluacionSync("aterrizaje2026")?.parcial ?? false;
 
   if (comparar) {
     const comp = getEscuelaComparativaSync(cct);
@@ -54,7 +53,7 @@ export default async function EscuelaPage({
         <PageHeader
           centerContent={
             <Suspense fallback={null}>
-              <SelectorEvaluacion parcial2026={parcial2026} />
+              <SelectorEvaluacion />
             </Suspense>
           }
         >
@@ -187,7 +186,7 @@ export default async function EscuelaPage({
       <PageHeader
         centerContent={
           <Suspense fallback={null}>
-            <SelectorEvaluacion parcial2026={parcial2026} />
+            <SelectorEvaluacion />
           </Suspense>
         }
       >
