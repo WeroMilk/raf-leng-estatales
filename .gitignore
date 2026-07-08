@@ -58,3 +58,5 @@ USUARIOS-Y-CONTRASEÑAS.txt
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
