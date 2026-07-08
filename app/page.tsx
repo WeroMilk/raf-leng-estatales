@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Suspense } from "react";
 import { cookies } from "next/headers";
 import {
@@ -117,7 +117,6 @@ export default async function HomePage({
             <p className="text-xs leading-snug text-foreground/80 lg:text-sm">
               {RAF_CONFIG.nombrePlural}
             </p>
-            <p className="page-header__author text-xs leading-snug text-foreground/70 lg:text-sm">Mtra. Rosa Isela Ayón</p>
             {session?.tipo === "zona" && (
               <span className="text-sm font-medium text-foreground/70">Zona {session.zona}</span>
             )}
@@ -140,9 +139,7 @@ export default async function HomePage({
                 resumen2025={resumen2025}
                 resumen2026={resumen2026}
                 basePorNivel={basePorNivel}
-                totalEscuelas2025={escuelas2025.length}
-                totalEscuelas2026={escuelas2026.length}
-              />
+                              />
               <p className="home-page__updated">
                 Última actualización: {formatUltimaActualizacion(generado)}
               </p>

@@ -2228,13 +2228,15 @@ a,
 
 @media (max-width: 1023px) {
   .comparativa-dual-grid--expanded .tabla-alumnos-nivel__body {
-    overflow: visible !important;
-    flex: none !important;
-    min-height: auto !important;
+    overflow-y: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    -webkit-overflow-scrolling: touch;
   }
 
   .comparativa-dual-grid--expanded .tabla-alumnos-nivel {
-    flex: none !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
   }
 }
 
