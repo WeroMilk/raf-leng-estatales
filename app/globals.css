@@ -1940,12 +1940,20 @@ a,
   color: #2a5a3a;
 }
 
-.delta-up {
-  color: #2d7a4a;
+.delta-up,
+.comparativa-nivel-fila__delta.delta-up,
+.distribucion-comparativa__delta.delta-up,
+.reactivos-card__delta.delta-up {
+  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.14);
 }
 
-.delta-down {
-  color: #b54545;
+.delta-down,
+.comparativa-nivel-fila__delta.delta-down,
+.distribucion-comparativa__delta.delta-down,
+.reactivos-card__delta.delta-down {
+  color: #d32f2f;
+  background: rgba(211, 47, 47, 0.12);
 }
 
 .delta-neutral {
