@@ -17,6 +17,7 @@ import { filtrarEscuelasPorZona, parseZonasParam } from "@/lib/zonas";
 import { parseEvalParam, buildQueryString, isComparativa } from "@/lib/eval-query";
 import { resumenDesdeEscuelas } from "@/lib/comparativa";
 import { formatUltimaActualizacion } from "@/lib/format-fecha";
+import { RAF_CONFIG } from "@/lib/raf-config";
 
 function parseZonasFromParams(params: { zona?: string | string[] }) {
   return parseZonasParam(params.zona);
@@ -112,7 +113,7 @@ export default async function HomePage({
         meta={
           <>
             <p className="text-xs leading-snug text-foreground/80 lg:text-sm">
-              Secundarias Técnicas
+              {RAF_CONFIG.nombrePlural}
             </p>
             {session?.tipo === "zona" && (
               <span className="text-sm font-medium text-foreground/70">Zona {session.zona}</span>
