@@ -80,22 +80,45 @@ function getZonaPorCct(cct) {
   return num != null ? (ESCUELA_A_ZONA[num] ?? null) : null;
 }
 
+function roundPercentagesTo100(counts) {
+  const safe = counts.map((c) => (Number.isFinite(c) && c > 0 ? c : 0));
+  const total = safe.reduce((s, n) => s + n, 0);
+  if (total <= 0) return counts.map(() => 0);
+  const exact = safe.map((c) => (c / total) * 100);
+  const floors = exact.map((p) => Math.floor(p + 1e-9));
+  let remaining = 100 - floors.reduce((s, n) => s + n, 0);
+  const order = exact
+    .map((p, index) => ({ index, frac: p - floors[index], count: safe[index] }))
+    .sort((a, b) => b.frac - a.frac || b.count - a.count || a.index - b.index);
+  const result = [...floors];
+  if (remaining > 0) {
+    for (let i = 0; i < remaining && i < order.length; i++) result[order[i].index] += 1;
+  } else if (remaining < 0) {
+    const rev = [...order].reverse();
+    for (let i = 0; i < -remaining && i < rev.length; i++) {
+      if (result[rev[i].index] > 0) result[rev[i].index] -= 1;
+    }
+  }
+  return result;
+}
+
 function resumenDesdeEscuelas(escuelas) {
   const total = escuelas.reduce((s, e) => s + e.totalEstudiantes, 0);
   const nivel1 = escuelas.reduce((s, e) => s + (e.nivel1 ?? 0), 0);
   const nivel2 = escuelas.reduce((s, e) => s + (e.nivel2 ?? 0), 0);
   const nivel3 = escuelas.reduce((s, e) => s + (e.nivel3 ?? 0), 0);
   const nivel4 = escuelas.reduce((s, e) => s + (e.nivel4 ?? 0), 0);
+  const [pctN1, pctN2, pctN3, pctN4] = roundPercentagesTo100([nivel1, nivel2, nivel3, nivel4]);
   return {
     total,
     nivel1,
     nivel2,
     nivel3,
     nivel4,
-    pctN1: total ? Math.round((nivel1 / total) * 100) : 0,
-    pctN2: total ? Math.round((nivel2 / total) * 100) : 0,
-    pctN3: total ? Math.round((nivel3 / total) * 100) : 0,
-    pctN4: total ? Math.round((nivel4 / total) * 100) : 0,
+    pctN1,
+    pctN2,
+    pctN3,
+    pctN4,
   };
 }
 

@@ -3,6 +3,7 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import type { EscuelaResumen } from "@/types/raf";
 import { useSquareChartSize } from "@/app/components/useSquareChartSize";
+import { roundPercentagesTo100 } from "@/lib/percentages";
 
 interface Props {
   nivel: 1 | 2 | 3 | 4;
@@ -14,11 +15,16 @@ interface Props {
   className?: string;
 }
 
+function calcPcts(escuelas: EscuelaResumen[]): number[] {
+  const counts = ([1, 2, 3, 4] as const).map((n) => {
+    const key = `nivel${n}` as keyof EscuelaResumen;
+    return escuelas.reduce((s, e) => s + ((e[key] as number) ?? 0), 0);
+  });
+  return roundPercentagesTo100(counts);
+}
+
 function calcPct(nivel: 1 | 2 | 3 | 4, escuelas: EscuelaResumen[]) {
-  const key = `nivel${nivel}` as keyof EscuelaResumen;
-  const totalAlumnos = escuelas.reduce((s, e) => s + e.totalEstudiantes, 0);
-  const alumnosEnNivel = escuelas.reduce((s, e) => s + ((e[key] as number) ?? 0), 0);
-  return totalAlumnos ? Math.round((alumnosEnNivel / totalAlumnos) * 100) : 0;
+  return calcPcts(escuelas)[nivel - 1] ?? 0;
 }
 
 export default function ChartPastelDistribucion({
@@ -143,7 +149,7 @@ export default function ChartPastelDistribucion({
                 contentStyle={{ fontSize: 10, borderRadius: 6, padding: "4px 8px" }}
                 formatter={(value, name) => {
                   const v = Number(value ?? 0);
-                  const pct = totalAlumnos ? Math.round((v / totalAlumnos) * 100) : 0;
+                  const pct = name === "Este nivel" ? pctNivel : Math.max(0, 100 - pctNivel);
                   return [`${v} (${pct}%)`, name];
                 }}
               />

@@ -4,6 +4,7 @@ import type {
   EvaluacionId,
   NivelLenguaje,
 } from "@/types/raf";
+import { roundPercentagesTo100 } from "@/lib/percentages";
 
 export interface ResumenNiveles {
   total: number;
@@ -66,16 +67,17 @@ export function resumenDesdeEscuelas(escuelas: EscuelaResumen[]): ResumenNiveles
   const nivel2 = escuelas.reduce((s, e) => s + (e.nivel2 ?? 0), 0);
   const nivel3 = escuelas.reduce((s, e) => s + (e.nivel3 ?? 0), 0);
   const nivel4 = escuelas.reduce((s, e) => s + (e.nivel4 ?? 0), 0);
+  const [pctN1, pctN2, pctN3, pctN4] = roundPercentagesTo100([nivel1, nivel2, nivel3, nivel4]);
   return {
     total,
     nivel1,
     nivel2,
     nivel3,
     nivel4,
-    pctN1: total ? Math.round((nivel1 / total) * 100) : 0,
-    pctN2: total ? Math.round((nivel2 / total) * 100) : 0,
-    pctN3: total ? Math.round((nivel3 / total) * 100) : 0,
-    pctN4: total ? Math.round((nivel4 / total) * 100) : 0,
+    pctN1,
+    pctN2,
+    pctN3,
+    pctN4,
   };
 }
 

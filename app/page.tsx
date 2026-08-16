@@ -79,22 +79,14 @@ export default async function HomePage({
 
   const resumen2025 = resumenDesdeEscuelas(escuelas2025);
   const resumen2026 = resumenDesdeEscuelas(escuelas2026);
+  const resumenActivo = resumenDesdeEscuelas(escuelasActivas);
 
-  const totalAlumnos = escuelasActivas.reduce((s, e) => s + e.totalEstudiantes, 0);
-  const totalN1 = escuelasActivas.reduce((s, e) => s + (e.nivel1 ?? 0), 0);
-  const totalN2 = escuelasActivas.reduce((s, e) => s + (e.nivel2 ?? 0), 0);
-  const totalN3 = escuelasActivas.reduce((s, e) => s + (e.nivel3 ?? 0), 0);
-  const totalN4 = escuelasActivas.reduce((s, e) => s + (e.nivel4 ?? 0), 0);
-  const pctN1 = totalAlumnos ? Math.round((totalN1 / totalAlumnos) * 100) : 0;
-  const pctN2 = totalAlumnos ? Math.round((totalN2 / totalAlumnos) * 100) : 0;
-  const pctN3 = totalAlumnos ? Math.round((totalN3 / totalAlumnos) * 100) : 0;
-  const pctN4 = totalAlumnos ? Math.round((totalN4 / totalAlumnos) * 100) : 0;
-
+  const totalAlumnos = resumenActivo.total;
   const nivelTotales = [
-    { n: 1, total: totalN1, pct: pctN1, color: COLORS.nivel1 },
-    { n: 2, total: totalN2, pct: pctN2, color: COLORS.nivel2 },
-    { n: 3, total: totalN3, pct: pctN3, color: COLORS.nivel3 },
-    { n: 4, total: totalN4, pct: pctN4, color: COLORS.nivel4 },
+    { n: 1, total: resumenActivo.nivel1, pct: resumenActivo.pctN1, color: COLORS.nivel1 },
+    { n: 2, total: resumenActivo.nivel2, pct: resumenActivo.pctN2, color: COLORS.nivel2 },
+    { n: 3, total: resumenActivo.nivel3, pct: resumenActivo.pctN3, color: COLORS.nivel3 },
+    { n: 4, total: resumenActivo.nivel4, pct: resumenActivo.pctN4, color: COLORS.nivel4 },
   ];
 
   const qsBase = buildQueryString({ evalModo, zona: zonasFiltro });
