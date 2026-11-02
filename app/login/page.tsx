@@ -39,8 +39,8 @@ export default function LoginPage() {
       >
         <div className="mx-auto flex w-full max-w-sm flex-col items-center gap-6 text-center">
           <div className="flex justify-center pt-2">
-            <LogoSonoraSec maxWidth={480} className="sm:hidden" priority />
-            <LogoSonoraSec maxWidth={560} className="hidden sm:block" priority />
+            <LogoSonoraSec maxWidth={300} className="sm:hidden" priority />
+            <LogoSonoraSec maxWidth={360} className="hidden sm:block" priority />
           </div>
 
           <div className="login-card animate-fade-in">

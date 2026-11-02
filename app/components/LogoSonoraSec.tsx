@@ -62,10 +62,10 @@ export default function LogoSonoraSec({
         className={
           imgLoaded && !imgError
             ? `w-full h-auto object-contain opacity-100 transition-opacity duration-200 ${
-                variant === "header" ? "max-h-[72px] sm:max-h-[84px] lg:max-h-[96px]" : "max-h-[200px]"
+                variant === "header" ? "max-h-[72px] sm:max-h-[84px] lg:max-h-[96px]" : "max-h-[148px]"
               }`
             : `absolute inset-0 m-auto w-auto max-w-full object-contain opacity-0 transition-opacity duration-200 ${
-                variant === "header" ? "max-h-[72px] sm:max-h-[84px] lg:max-h-[96px]" : "max-h-[200px]"
+                variant === "header" ? "max-h-[72px] sm:max-h-[84px] lg:max-h-[96px]" : "max-h-[148px]"
               }`
         }
         style={{ maxWidth: "100%", aspectRatio: "603 / 295" }}
