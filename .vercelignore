@@ -1,0 +1,8 @@
+node_modules
+.next
+.vercel
+data/excel
+*.xlsx
+.env*
+lib/passwords-*.txt
+USUARIOS-Y-CONTRASEÑAS*.txt
