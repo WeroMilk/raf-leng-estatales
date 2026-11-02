@@ -14,7 +14,7 @@ export default function AppHeader() {
       aria-label="Cabecera"
     >
       <div className="flex shrink-0 items-center justify-end w-[130px] sm:w-[160px]">
-        <LogoSonoraSec variant="header" maxWidth={160} className="w-full" />
+        <LogoSonoraSec variant="header" maxWidth={210} className="w-full" />
       </div>
     </header>
   );

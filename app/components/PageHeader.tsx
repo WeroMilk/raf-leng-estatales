@@ -29,8 +29,8 @@ export default function PageHeader({
           {meta && <div className="page-header__meta">{meta}</div>}
         </div>
         <div className="page-header__logo shrink-0">
-          <LogoSonoraSec maxWidth={240} className="hidden sm:block" variant="header" />
-          <LogoSonoraSec maxWidth={120} className="sm:hidden" variant="header" />
+          <LogoSonoraSec maxWidth={300} className="hidden sm:block" variant="header" />
+          <LogoSonoraSec maxWidth={156} className="sm:hidden" variant="header" />
         </div>
       </div>
       {centerContent && (

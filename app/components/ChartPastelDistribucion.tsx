@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import type { EscuelaResumen } from "@/types/raf";
 import { useSquareChartSize } from "@/app/components/useSquareChartSize";
@@ -36,6 +37,8 @@ export default function ChartPastelDistribucion({
   className = "",
 }: Props) {
   const { ref: ringWrapRef, size: ringSize } = useSquareChartSize(6);
+  const [chartOn, setChartOn] = useState(false);
+  useEffect(() => setChartOn(true), []);
   const key = `nivel${nivel}` as keyof EscuelaResumen;
   const totalAlumnos = escuelas.reduce((s, e) => s + e.totalEstudiantes, 0);
   const alumnosEnNivel = escuelas.reduce((s, e) => s + ((e[key] as number) ?? 0), 0);
@@ -124,7 +127,8 @@ export default function ChartPastelDistribucion({
     <div className={`chart-pastel-donut chart-animate-in card-ios rounded-xl border border-border bg-card ${className}`.trim()}>
       <div ref={ringWrapRef} className="chart-pastel-donut__ring-wrap">
         <div className="chart-pastel-donut__ring" style={ringStyle}>
-          <ResponsiveContainer width="100%" height="100%">
+          {chartOn ? (
+          <ResponsiveContainer width={ringSize} height={ringSize} minWidth={1} minHeight={1}>
             <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
               <Pie
                 data={chartData}
@@ -155,6 +159,7 @@ export default function ChartPastelDistribucion({
               />
             </PieChart>
           </ResponsiveContainer>
+          ) : null}
           <div className="chart-pastel-donut__center" aria-hidden>
             <span className="chart-pastel-donut__center-bg" />
             <div className="chart-pastel-donut__center-values">

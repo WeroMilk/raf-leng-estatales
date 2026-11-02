@@ -35,8 +35,9 @@ export default async function RootLayout({
   const session = await getSession(cookieStore.get("raf_session")?.value ?? null);
 
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
         <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
         <link rel="manifest" href="/manifest.json" />

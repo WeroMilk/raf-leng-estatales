@@ -38,7 +38,7 @@ export default function ChartBarraNivel({ nivel, escuelas, color, descriptor }: 
         Nivel {nivel}: {descriptor}
       </h3>
       <div className="chart-no-focus h-[180px] w-full min-w-0" tabIndex={-1}>
-        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={60}>
+        <ResponsiveContainer width="100%" height={180} minWidth={1} minHeight={60}>
           <BarChart data={data} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
             <XAxis
               dataKey="nombre"
