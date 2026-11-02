@@ -1,8 +1,8 @@
 import type { EvalModo } from "@/types/raf";
 
 const OPCIONES: { id: EvalModo; label: string; short: string }[] = [
-  { id: "despegue2025", label: "Despegue 2026", short: "2025" },
-  { id: "aterrizaje2026", label: "Aterrizaje 2027", short: "2026" },
+  { id: "despegue2025", label: "Despegue 2026", short: "2026" },
+  { id: "aterrizaje2026", label: "Aterrizaje 2027", short: "2027" },
   { id: "comparar", label: "Comparativa", short: "Comp." },
 ];
 
