@@ -127,8 +127,8 @@ export const EVALUACIONES_CATALOGO: Record<
   EvaluacionId,
   { nombre: string; nombreCorto: string }
 > = {
-  despegue2025: { nombre: "RAF Despegue 2025", nombreCorto: "Despegue 2025" },
-  aterrizaje2026: { nombre: "RAF Aterrizaje 2026", nombreCorto: "Aterrizaje 2026" },
+  despegue2025: { nombre: "RAF Despegue 2026", nombreCorto: "Despegue 2026" },
+  aterrizaje2026: { nombre: "RAF Aterrizaje 2027", nombreCorto: "Aterrizaje 2027" },
 };
 
 export const DEFAULT_EVALUACION: EvaluacionId = "despegue2025";

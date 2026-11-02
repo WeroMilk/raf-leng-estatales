@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Alimenta las 6 apps (estatales, generales, telesecundarias × lenguaje/matemáticas)
- * con datos Despegue 2025 + Aterrizaje 2026 desde los Excel combinados.
+ * con datos Despegue 2026 + Aterrizaje 2027 desde los Excel combinados.
  */
 import * as fs from "fs";
 import * as path from "path";

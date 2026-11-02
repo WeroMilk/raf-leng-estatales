@@ -13,8 +13,8 @@ npm run dev
 
 1. Editar `lib/raf-config.json` si necesitas cambiar el prefijo CCT (`cctPrefix`, actualmente `26DXX`)
 2. Colocar archivos Excel:
-- **Despegue 2025:** `data/excel/despegue-2025/*_actualizado.xlsx`
-- **Aterrizaje 2026:** `data/excel/aterrizaje-2026/`
+- **Despegue 2026:** `data/excel/despegue-2025/*_actualizado.xlsx`
+- **Aterrizaje 2027:** `data/excel/aterrizaje-2026/`
 3. Generar JSON:
 
 ```bash

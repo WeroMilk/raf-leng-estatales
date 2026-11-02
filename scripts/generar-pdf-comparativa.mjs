@@ -207,7 +207,7 @@ function generarLecturaPrograma(r25, r26, deltaPct, parcial) {
   }
 
   const parrafos = [
-    `De Despegue 2025 a Aterrizaje 2026, los alumnos en niveles altos (N3+N4) pasaron del ${pctAlto25}% al ${pctAlto26}% del total evaluado.`,
+    `De Despegue 2026 a Aterrizaje 2027, los alumnos en niveles altos (N3+N4) pasaron del ${pctAlto25}% al ${pctAlto26}% del total evaluado.`,
     `En puntos porcentuales: N3 ${varLabelPct(deltaPct.nivel3)} y N4 ${varLabelPct(deltaPct.nivel4)}; N1 ${varLabelPct(deltaPct.nivel1)} y N2 ${varLabelPct(deltaPct.nivel2)}. Esto sugiere que mas estudiantes avanzaron hacia comprension lectora mas profunda.`,
     parcial
       ? "Los datos de 2026 son parciales; conviene completar la evaluacion en todas las escuelas para confirmar la tendencia."
@@ -239,7 +239,7 @@ function drawHeader(doc, generado) {
   const { m } = PAGE;
   doc.save().rect(0, 0, PAGE.w, 40).fill(C.sonora).restore();
   txt(doc, "Comparativa RAF Lenguaje", m, 11, { size: 14, color: "#ffffff", bold: true });
-  txt(doc, "Despegue 2025 vs Aterrizaje 2026  |  `${RAF_CONFIG.nombrePlural}`  |  Primer grado", m, 26, {
+  txt(doc, "Despegue 2026 vs Aterrizaje 2027  |  `${RAF_CONFIG.nombrePlural}`  |  Primer grado", m, 26, {
     size: 8,
     color: "#ffffff",
   });
@@ -435,12 +435,12 @@ function drawSinglePage(doc, ctx) {
   const deltaW = innerW - cardW * 2 - gap;
 
   drawYearCard(doc, m, row1Y, cardW, cardH, {
-    title: "Despegue 2025",
+    title: "Despegue 2026",
     color: C.year2025,
     r: r25,
   });
   drawYearCard(doc, m + cardW + gap, row1Y, cardW, cardH, {
-    title: "Aterrizaje 2026",
+    title: "Aterrizaje 2027",
     color: C.year2026,
     r: r26,
   });

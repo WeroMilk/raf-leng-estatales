@@ -6,8 +6,8 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import type { EvalModo } from "@/types/raf";
 
 const OPCIONES: { id: EvalModo; label: string; short: string }[] = [
-  { id: "despegue2025", label: "Despegue 2025", short: "2025" },
-  { id: "aterrizaje2026", label: "Aterrizaje 2026", short: "2026" },
+  { id: "despegue2025", label: "Despegue 2026", short: "2025" },
+  { id: "aterrizaje2026", label: "Aterrizaje 2027", short: "2026" },
   { id: "comparar", label: "Comparativa", short: "Comp." },
 ];
 

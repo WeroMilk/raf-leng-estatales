@@ -111,7 +111,7 @@ export default function EscuelasComparativaContent({ escuelas }: Props) {
                         <div>N3: {item.aterrizaje2026.nivel3}</div>
                       </>
                     ) : (
-                      <span className="eval-badge--solo-2025">Sin Aterrizaje 2026</span>
+                      <span className="eval-badge--solo-2025">Sin Aterrizaje 2027</span>
                     )}
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function EscuelasComparativaContent({ escuelas }: Props) {
                 <div className="mt-1.5 w-full space-y-1 pointer-events-none">
                   {item.despegue2025 && (
                     <div>
-                      <p className="mb-0.5 text-[9px] font-semibold text-[var(--year-2025)]">Despegue 2025</p>
+                      <p className="mb-0.5 text-[9px] font-semibold text-[var(--year-2025)]">Despegue 2026</p>
                       <DistribucionNivelesCharts
                         escuelas={[item.despegue2025]}
                         size="mini"
@@ -134,7 +134,7 @@ export default function EscuelasComparativaContent({ escuelas }: Props) {
                   )}
                   {item.aterrizaje2026 && (
                     <div>
-                      <p className="mb-0.5 text-[9px] font-semibold text-[var(--year-2026)]">Aterrizaje 2026</p>
+                      <p className="mb-0.5 text-[9px] font-semibold text-[var(--year-2026)]">Aterrizaje 2027</p>
                       <DistribucionNivelesCharts
                         escuelas={[item.aterrizaje2026]}
                         size="mini"

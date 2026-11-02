@@ -72,7 +72,7 @@ export default async function GrupoPage({
               <div className="comparativa-dual-grid">
                 {g25 && (
                   <div>
-                    <p className="mb-1 text-xs font-semibold text-[var(--year-2025)]">Despegue 2025</p>
+                    <p className="mb-1 text-xs font-semibold text-[var(--year-2025)]">Despegue 2026</p>
                     <DistribucionNivelesCharts
                       escuelas={[grupoToEscuelaResumen(g25, cct)]}
                       size="compact"
@@ -82,7 +82,7 @@ export default async function GrupoPage({
                 )}
                 {g26 && (
                   <div>
-                    <p className="mb-1 text-xs font-semibold text-[var(--year-2026)]">Aterrizaje 2026</p>
+                    <p className="mb-1 text-xs font-semibold text-[var(--year-2026)]">Aterrizaje 2027</p>
                     <DistribucionNivelesCharts
                       escuelas={[grupoToEscuelaResumen(g26, cct)]}
                       size="compact"

@@ -98,7 +98,7 @@ export default async function EscuelasPage({
           {comparar ? "Comparativa por escuela" : "Por escuela"}
         </h1>
         <p className="text-xs text-foreground/80">
-          {comparar ? "Despegue 2025 vs Aterrizaje 2026" : "Selecciona una escuela."}
+          {comparar ? "Despegue 2026 vs Aterrizaje 2027" : "Selecciona una escuela."}
         </p>
       </PageHeader>
 

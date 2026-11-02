@@ -41,13 +41,13 @@ function cctNumeroRegex() {
 const EVALUACIONES = {
   despegue2025: {
     id: "despegue2025",
-    nombre: "RAF Despegue 2025",
-    nombreCorto: "Despegue 2025",
+    nombre: "RAF Despegue 2026",
+    nombreCorto: "Despegue 2026",
   },
   aterrizaje2026: {
     id: "aterrizaje2026",
-    nombre: "RAF Aterrizaje 2026",
-    nombreCorto: "Aterrizaje 2026",
+    nombre: "RAF Aterrizaje 2027",
+    nombreCorto: "Aterrizaje 2027",
   },
 };
 
@@ -598,7 +598,7 @@ function procesarAterrizaje2026(numToCct, totalEscuelasDespegue) {
   if (zipFiles.length === 0) return null;
 
   const filePath = path.join(ATERRIZAJE_DIR, zipFiles[0]);
-  console.log("Procesando Aterrizaje 2026 (ZipGrade):", filePath);
+  console.log("Procesando Aterrizaje 2027 (ZipGrade):", filePath);
   const escuelas = procesarZipGradeCombinado(filePath, numToCct);
   const totalAlumnos = escuelas.reduce((s, e) => s + e.totalEstudiantes, 0);
   console.log(`  → ${escuelas.length} escuelas, ${totalAlumnos} alumnos`);
@@ -625,7 +625,7 @@ function main() {
     };
   } else {
     const despegueDir = fs.existsSync(DESPEGUE_DIR) ? DESPEGUE_DIR : DATA_DIR;
-    console.log("Procesando Despegue 2025:", despegueDir);
+    console.log("Procesando Despegue 2026:", despegueDir);
     const escuelas2025 = procesarDirectorioEscuelas(despegueDir);
     const total2025 = escuelas2025.reduce((s, e) => s + e.totalEstudiantes, 0);
     console.log(`  → ${escuelas2025.length} escuelas, ${total2025} alumnos`);

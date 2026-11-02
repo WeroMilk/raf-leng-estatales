@@ -52,12 +52,12 @@ const AREA_POR_TIPO = {
 
 const META = {
   despegue: {
-    leng: { id: "despegue2025", nombre: "RAF Despegue 2025", nombreCorto: "Despegue 2025" },
-    mat: { id: "despegue-2025", nombre: "RAF Despegue 2025", nombreCorto: "Despegue 2025" },
+    leng: { id: "despegue2025", nombre: "RAF Despegue 2026", nombreCorto: "Despegue 2026" },
+    mat: { id: "despegue-2025", nombre: "RAF Despegue 2026", nombreCorto: "Despegue 2026" },
   },
   aterrizaje: {
-    leng: { id: "aterrizaje2026", nombre: "RAF Aterrizaje 2026", nombreCorto: "Aterrizaje 2026" },
-    mat: { id: "aterrizaje-2026", nombre: "RAF Aterrizaje 2026", nombreCorto: "Aterrizaje 2026" },
+    leng: { id: "aterrizaje2026", nombre: "RAF Aterrizaje 2027", nombreCorto: "Aterrizaje 2027" },
+    mat: { id: "aterrizaje-2026", nombre: "RAF Aterrizaje 2027", nombreCorto: "Aterrizaje 2027" },
   },
 };
 

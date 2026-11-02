@@ -49,8 +49,8 @@ function normalizeMultiData(input: unknown): ResultadosMultiRAF {
       evaluaciones: {
         despegue2025: {
           id: "despegue2025",
-          nombre: "RAF Despegue 2025",
-          nombreCorto: "Despegue 2025",
+          nombre: "RAF Despegue 2026",
+          nombreCorto: "Despegue 2026",
           escuelas: aplicarNombresEscuelas({ escuelas: legacy.escuelas, generado: legacy.generado }).escuelas,
           generado: legacy.generado,
         },

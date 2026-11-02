@@ -69,7 +69,7 @@ export default async function EscuelaPage({
         <ScrollOnlyWhenNeeded className="flex min-h-0 flex-1 flex-col gap-1.5 min-w-0">
         {!comp.aterrizaje2026 && (
           <p className="shrink-0 text-xs">
-            <span className="eval-badge--solo-2025">Sin datos de Aterrizaje 2026</span>
+            <span className="eval-badge--solo-2025">Sin datos de Aterrizaje 2027</span>
           </p>
         )}
 
@@ -85,7 +85,7 @@ export default async function EscuelaPage({
             <div className="comparativa-dual-grid">
               {comp.resumen2025 && comp.despegue2025 && (
                 <div>
-                  <p className="mb-1 text-xs font-semibold text-[var(--year-2025)]">Despegue 2025</p>
+                  <p className="mb-1 text-xs font-semibold text-[var(--year-2025)]">Despegue 2026</p>
                   <DistribucionNivelesCharts
                     escuelas={[comp.despegue2025]}
                     size="compact"
@@ -100,7 +100,7 @@ export default async function EscuelaPage({
               )}
               {comp.resumen2026 && comp.aterrizaje2026 && (
                 <div>
-                  <p className="mb-1 text-xs font-semibold text-[var(--year-2026)]">Aterrizaje 2026</p>
+                  <p className="mb-1 text-xs font-semibold text-[var(--year-2026)]">Aterrizaje 2027</p>
                   <DistribucionNivelesCharts
                     escuelas={[comp.aterrizaje2026]}
                     size="compact"
