@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 const LOGO_WRAPPER_CLASS =
-  "rounded-xl flex items-center justify-center relative";
+  "relative mx-auto flex w-full items-center justify-center rounded-xl";
 const LOGO_WRAPPER_DEFAULT = "p-2 min-h-[96px]";
 const LOGO_WRAPPER_HEADER = "p-1.5 min-h-0 sm:p-2";
 
@@ -61,14 +61,22 @@ export default function LogoSonoraSec({
         height={100}
         className={
           imgLoaded && !imgError
-            ? `w-full h-auto object-contain opacity-100 transition-opacity duration-200 ${
+            ? `mx-auto block h-auto w-auto max-w-full object-contain opacity-100 transition-opacity duration-200 ${
                 variant === "header" ? "max-h-[72px] sm:max-h-[84px] lg:max-h-[96px]" : "max-h-[148px]"
               }`
-            : `absolute inset-0 m-auto w-auto max-w-full object-contain opacity-0 transition-opacity duration-200 ${
+            : `absolute inset-0 m-auto block h-auto w-auto max-w-full object-contain opacity-0 transition-opacity duration-200 ${
                 variant === "header" ? "max-h-[72px] sm:max-h-[84px] lg:max-h-[96px]" : "max-h-[148px]"
               }`
         }
-        style={{ maxWidth: "100%", aspectRatio: "603 / 295" }}
+        style={{
+          maxWidth: "100%",
+          width: "auto",
+          height: "auto",
+          aspectRatio: "603 / 295",
+          marginLeft: "auto",
+          marginRight: "auto",
+          objectPosition: "center",
+        }}
         priority={priority}
         onLoad={() => setImgLoaded(true)}
         onError={() => setImgError(true)}
